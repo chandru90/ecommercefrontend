@@ -1,29 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, clearCart } from "../features/cartSlice"; 
+import { removeFromCart, clearCart } from "../features/cartSlice";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CartPage = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems); 
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-
 
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  
   const totalAmount = cartItems
     .reduce((total, item) => total + item.price * item.quantity, 0)
-    .toFixed(2); 
+    .toFixed(2);
 
   const handleRemove = (id) => {
-    dispatch(removeFromCart(id)); 
+    dispatch(removeFromCart(id));
   };
 
   const handleCheckout = async () => {
-    
     if (!customerName || !email || !address) {
       alert("Please fill in all fields.");
       return;
@@ -34,7 +31,7 @@ const CartPage = () => {
       email,
       address,
       items: cartItems.map((item) => ({
-        productId: item.id, 
+        productId: item.id,
         title: item.title,
         price: item.price,
         quantity: item.quantity,
@@ -43,14 +40,13 @@ const CartPage = () => {
     };
 
     try {
-      
       const response = await axios.post(
-        "http://localhost:5000/api/orders/checkout",
+        "https://ecommercestore-yxcj.onrender.com/api/orders/checkout",
         orderDetails
       );
 
       console.log("Order placed successfully:", response.data);
-      alert("Order placed successfully!"); 
+      alert("Order placed successfully!");
       dispatch(clearCart());
     } catch (error) {
       console.error("Error placing order:", error);
@@ -65,7 +61,6 @@ const CartPage = () => {
         <p className="text-center text-lg text-gray-500">Your cart is empty.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
           <div>
             <div className="space-y-4">
               {cartItems.map((item) => (
@@ -94,7 +89,6 @@ const CartPage = () => {
             </div>
           </div>
 
-          
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold mb-4">Enter Your Details</h3>
