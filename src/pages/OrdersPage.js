@@ -15,7 +15,7 @@ const OrdersPage = () => {
       const response = await axios.get(
         `https://ecommercestore-yxcj.onrender.com/api/orders/orders/${email}`
       );
-      setOrders(response.data)
+      setOrders(response.data);
       setError(null);
     } catch (err) {
       setError("Error fetching orders. Please try again.");
@@ -64,7 +64,7 @@ const OrdersPage = () => {
                   Order ID: {order._id}
                 </p>
                 <p className="text-gray-600">
-                  Total Amount: ${order.totalAmount}
+                  Total Amount: Rs.{order.totalAmount}
                 </p>
                 <p className="text-gray-600">
                   Date: {new Date(order.orderDate).toLocaleDateString()}

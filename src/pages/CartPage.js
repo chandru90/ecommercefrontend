@@ -75,7 +75,7 @@ const CartPage = () => {
                   />
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-gray-600">Price: ${item.price}</p>
+                    <p className="text-gray-600">Price: Rs{item.price}</p>
                     <p className="text-gray-600">Quantity: {item.quantity}</p>
                   </div>
                   <button
@@ -117,7 +117,7 @@ const CartPage = () => {
 
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-semibold mb-4">Total Amount</h3>
-              <p className="text-xl font-bold mb-4">${totalAmount}</p>
+              <p className="text-xl font-bold mb-4">Rs{totalAmount}</p>
               <button
                 onClick={handleCheckout}
                 className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
