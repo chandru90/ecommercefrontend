@@ -64,7 +64,7 @@ const OrdersPage = () => {
                   Order ID: {order._id}
                 </p>
                 <p className="text-gray-600">
-                  Total Amount: Rs.{order.totalAmount}
+                  Total Amount: ${order.totalAmount}
                 </p>
                 <p className="text-gray-600">
                   Date: {new Date(order.orderDate).toLocaleDateString()}

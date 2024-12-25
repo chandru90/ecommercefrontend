@@ -117,7 +117,7 @@ const CartPage = () => {
 
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-semibold mb-4">Total Amount</h3>
-              <p className="text-xl font-bold mb-4">Rs{totalAmount}</p>
+              <p className="text-xl font-bold mb-4">${totalAmount}</p>
               <button
                 onClick={handleCheckout}
                 className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
