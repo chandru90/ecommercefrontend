@@ -75,7 +75,7 @@ const CartPage = () => {
                   />
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-gray-600">Price: Rs{item.price}</p>
+                    <p className="text-gray-600">Price:${item.price}</p>
                     <p className="text-gray-600">Quantity: {item.quantity}</p>
                   </div>
                   <button
